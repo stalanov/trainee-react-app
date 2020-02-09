@@ -1,4 +1,7 @@
-.header {
-  padding-top: 20px;
-  background-color: darkgrey;
+.navbar {
+  background-color: whitesmoke;
+}
+
+.navbar-brand:hover {
+  background-color: #fafafa;
 }
