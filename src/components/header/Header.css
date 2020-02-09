@@ -1,0 +1,7 @@
+.navbar {
+  background-color: whitesmoke;
+}
+
+.navbar-brand:hover {
+  background-color: #fafafa;
+}
