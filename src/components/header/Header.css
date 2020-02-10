@@ -1,7 +1,11 @@
 .navbar {
-  background-color: whitesmoke;
+  background-color: #ffe81f;
+}
+
+.navbar-menu.is-active {
+  background-color: #ffe81f;
 }
 
 .navbar-brand:hover {
-  background-color: #fafafa;
+  background-color: #ffff7f;
 }

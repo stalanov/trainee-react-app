@@ -28,7 +28,7 @@ class Header extends React.Component {
       <nav className="navbar">
         <div className="navbar-brand">
           <Link to="/">
-            <img src="../../banner.png" alt="banner" width="350" />
+            <img src="../../banner.png" alt="banner" width="280" />
           </Link>
 
           <Link to="" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
