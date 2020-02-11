@@ -1,0 +1,35 @@
+.film-card {
+  background-color: transparent;
+  color: white;
+  border: 5px solid #ffe81f;
+  margin: 15px;
+  text-align: center;
+}
+
+.film-card__width {
+  width: 550px;
+}
+
+@media only screen and (max-width: 768px) {
+  .film-card__width {
+    width: auto;
+  }
+}
+
+.film-card__poster {
+  max-width: 222px;
+}
+
+.film-card__content {
+  padding-top: 1.5rem;
+  padding-right: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.film-card__title {
+  color: white;
+}
+
+.film-card__subtitle {
+  color: white;
+}
