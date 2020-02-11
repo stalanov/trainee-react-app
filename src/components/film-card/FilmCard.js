@@ -1,14 +1,29 @@
 import React from 'react';
+import './FilmCard.css';
 
 function FilmCard(props) {
   const { film } = props;
   return (
-    <div className="column is-one-quarter">
-      <img src={film.posterUrl} alt="film poster" />
-      <h1>Title: {film.title}</h1>
-      <h2>Episode: {film.episode_id}</h2>
-      <h3>Director: {film.director}</h3>
-      <h3>Release date: {film.release_date}</h3>
+    <div className="film-card film-card__width">
+      <div className="media">
+        <div className="media-left">
+          <img className="film-card__poster" src={film.posterUrl} alt="film poster" />
+        </div>
+        <div className="media-content film-card__content">
+          <p className="title is-4 film-card__title">{film.title}</p>
+          <p className="subtitle is-6 film-card__subtitle">Episode: {film.episode_id}</p>
+          <div className="content">
+            <p>
+              Director <br />
+              {film.director}
+            </p>
+            <p>
+              Release date <br />
+              {film.release_date}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

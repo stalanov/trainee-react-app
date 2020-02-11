@@ -47,7 +47,7 @@ class Film extends React.Component {
       return <FilmCard film={film} key={film.episode_id} />;
     });
 
-    return <div className="columns is-multiline">{filmCards}</div>;
+    return <div className="columns is-multiline is-centered">{filmCards}</div>;
   }
 }
 
