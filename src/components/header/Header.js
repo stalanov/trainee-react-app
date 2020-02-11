@@ -31,11 +31,11 @@ class Header extends React.Component {
             <img src="../../banner.png" alt="banner" width="280" />
           </Link>
 
-          <Link to="" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+          <div className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </Link>
+          </div>
         </div>
 
         <div id="navbarMain" className="navbar-menu">
