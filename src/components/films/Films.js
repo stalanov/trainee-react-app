@@ -1,9 +1,10 @@
 import React from 'react';
 import FilmCard from '../film-card/FilmCard';
 import getImageUrl from '../../helpers/ImageFetcher';
+import Loader from '../loader/Loader';
 
 class Film extends React.Component {
-  rowLength = 4;
+  isLoading = true;
   constructor() {
     super();
     this.state = {
@@ -20,6 +21,7 @@ class Film extends React.Component {
   }
 
   componentDidMount() {
+    this.isLoading = true;
     fetch('https://swapi.co/api/films')
       .then(response => {
         return response.json();
@@ -31,6 +33,7 @@ class Film extends React.Component {
             for (let i = 0; i < films.length; i++) {
               films[i].posterUrl = urls[i];
             }
+            this.isLoading = false;
             this.setState({
               films,
               count: data.count
@@ -47,7 +50,11 @@ class Film extends React.Component {
       return <FilmCard film={film} key={film.episode_id} />;
     });
 
-    return <div className="columns is-multiline is-centered">{filmCards}</div>;
+    return (
+      <React.Fragment>
+        {this.isLoading ? <Loader /> : <div className="columns is-multiline is-centered">{filmCards}</div>}
+      </React.Fragment>
+    );
   }
 }
 
