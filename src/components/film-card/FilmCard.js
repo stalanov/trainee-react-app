@@ -7,7 +7,7 @@ function FilmCard(props) {
     <div className="film-card film-card__width">
       <div className="media">
         <div className="media-left">
-          <img className="film-card__poster" src={film.posterUrl} alt="film poster" />
+          <img className="film-card__poster" src={film.posterUrl || '../../broken-image.png'} alt="film poster" />
         </div>
         <div className="media-content film-card__content">
           <p className="title is-4 film-card__title">{film.title}</p>
