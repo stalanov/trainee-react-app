@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './FilmCard.css';
 
 function FilmCard(props) {
@@ -27,5 +28,14 @@ function FilmCard(props) {
     </div>
   );
 }
+
+FilmCard.propTypes = {
+  film: PropTypes.shape({
+    title: PropTypes.string,
+    episode_id: PropTypes.number,
+    director: PropTypes.string,
+    release_date: PropTypes.string
+  })
+};
 
 export default FilmCard;
