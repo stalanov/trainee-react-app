@@ -1,9 +1,30 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { filmsService } from '../../App';
+import Loader from '../loader/Loader';
 
-function Film(props) {
-  let { id } = useParams();
-  return <div>Film Works witch path {id}</div>;
+class Film extends React.Component {
+  isLoading = true;
+
+  constructor() {
+    super();
+    this.state = {
+      film: null
+    };
+  }
+
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    filmsService.getFilmById(id - 1).then(film => {
+      this.isLoading = false;
+      this.setState({ film });
+      console.log(film);
+    });
+  }
+  render() {
+    return (
+      <React.Fragment>{this.isLoading ? <Loader /> : <div>Film {this.state.film.episode_id}</div>}</React.Fragment>
+    );
+  }
 }
 
 export default Film;
