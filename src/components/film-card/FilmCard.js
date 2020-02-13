@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './FilmCard.css';
 
 function FilmCard(props) {
   const { film } = props;
+  const link = '/films/' + film.episode_id;
   return (
-    <div className="film-card film-card__width">
+    <Link to={link} className="film-card film-card__width">
       <div className="media">
         <div className="media-left">
           <img className="film-card__poster" src={film.posterUrl || '../../broken-image.png'} alt="film poster" />
@@ -25,7 +27,7 @@ function FilmCard(props) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

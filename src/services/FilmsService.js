@@ -8,6 +8,13 @@ class FilmsService {
     return this.films;
   }
 
+  async getFilmById(id) {
+    if (!this.films) {
+      await this.fetchFilms();
+    }
+    return this.films[id];
+  }
+
   async fetchFilms() {
     const response = await fetch('https://swapi.co/api/films/');
     const data = await response.json();

@@ -1,0 +1,26 @@
+.film {
+  max-width: 1200px;
+  border: 5px solid #ffe81f;
+  margin: 15px;
+  text-align: center;
+  color: white;
+}
+
+.film-card__poster {
+  max-width: 222px;
+  margin: 1rem;
+}
+
+.film__content {
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.film__title {
+  color: white;
+}
+
+.film__subtitle {
+  color: white;
+}

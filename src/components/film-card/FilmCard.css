@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+.film-card:hover {
+  color: white;
+  border: 5px solid #ffff7f;
+}
+
 .film-card__width {
   width: 550px;
 }
