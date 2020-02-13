@@ -3,6 +3,9 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
 import Footer from './components/footer/Footer';
+import FilmsService from './services/FilmsService';
+
+export const filmsService = new FilmsService();
 
 function App() {
   const categories = ['films', 'people', 'planets', 'species', 'starships', 'vehicles'];
