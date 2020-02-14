@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from '../home/Home';
 import Films from '../films/Films';
+import Film from '../film/Film';
 import './Main.css';
 
 class Main extends React.Component {
@@ -10,7 +11,8 @@ class Main extends React.Component {
       <div className="main-background">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/films" component={Films} />
+          <Route exact path="/films" component={Films} />
+          <Route path="/films/:id" component={Film}></Route>
         </Switch>
       </div>
     );
