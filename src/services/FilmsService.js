@@ -25,7 +25,7 @@ class FilmsService {
       const film = films[i];
       film.posterUrl = posterUrls[i];
       const id = film.url.match(/\d+/)[0];
-      film.clientId = id;
+      film.filmId = id;
       this.films.set(id, film);
     }
   }
