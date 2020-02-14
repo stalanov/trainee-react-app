@@ -1,8 +1,6 @@
 import React from 'react';
 import FilmCard from '../film-card/FilmCard';
-import Film from '../film/Film';
 import Loader from '../loader/Loader';
-import { Switch, Route } from 'react-router-dom';
 import { filmsService } from '../../App';
 import AlertMessage from '../alert-message/AlertMessage';
 
@@ -22,6 +20,7 @@ class Films extends React.Component {
     filmsService
       .getFilms()
       .then(films => {
+        films.sort((a, b) => a.episode_id - b.episode_id);
         this.isLoading = false;
         this.setState({
           films,
@@ -47,20 +46,15 @@ class Films extends React.Component {
   }
 
   render() {
-    const filmCards = this.state.films.map(film => {
-      return <FilmCard film={film} key={film.episode_id} />;
+    const filmCards = this.state.films.map((film, index) => {
+      return <FilmCard film={film} key={index} />;
     });
     const { error } = this.state;
 
     return (
       <React.Fragment>
         {error && <AlertMessage error={error} close={() => this.closeMessage()} />}
-        <Switch>
-          <Route exact path="/films">
-            {this.isLoading ? <Loader /> : <div className="columns is-multiline is-centered">{filmCards}</div>}
-          </Route>
-          <Route path="/films/:id" component={Film}></Route>
-        </Switch>
+        {this.isLoading ? <Loader /> : <div className="columns is-multiline is-centered">{filmCards}</div>}
       </React.Fragment>
     );
   }

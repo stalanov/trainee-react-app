@@ -5,7 +5,7 @@ import './FilmCard.css';
 
 function FilmCard(props) {
   const { film } = props;
-  const link = '/films/' + film.episode_id;
+  const link = '/films/' + film.clientId;
   return (
     <Link to={link} className="film-card film-card__width">
       <div className="media">

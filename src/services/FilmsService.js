@@ -1,29 +1,39 @@
 import getImageUrl from '../helpers/ImageFetcher';
 
 class FilmsService {
+  films = new Map();
+
   async getFilms() {
-    if (!this.films) {
-      await this.fetchFilms();
+    const response = await fetch('https://swapi.co/api/films/');
+    const data = await response.json();
+    if (data.count !== this.films.size) {
+      await this.cacheFilms(data.results);
     }
-    return this.films;
+    return Array.from(this.films.values());
   }
 
   async getFilmById(id) {
-    if (!this.films) {
-      await this.fetchFilms();
+    if (!this.films.has(id)) {
+      await this.fetchFilmById(id);
     }
-    return this.films[id];
+    return this.films.get(id);
   }
 
-  async fetchFilms() {
-    const response = await fetch('https://swapi.co/api/films/');
-    const data = await response.json();
-    const films = data.results.sort((a, b) => a.episode_id - b.episode_id);
+  async cacheFilms(films) {
     const posterUrls = await this.takeImages(films);
     for (let i = 0; i < films.length; i++) {
-      films[i].posterUrl = posterUrls[i];
+      const film = films[i];
+      film.posterUrl = posterUrls[i];
+      const id = film.url.match(/\d+/)[0];
+      film.clientId = id;
+      this.films.set(id, film);
     }
-    this.films = films;
+  }
+
+  async fetchFilmById(id) {
+    const response = await fetch(`https://swapi.co/api/films/${id}/`);
+    const film = await response.json();
+    await this.cacheFilms(Array.of(film));
   }
 
   takeImages(films) {
