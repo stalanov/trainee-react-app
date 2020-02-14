@@ -46,8 +46,8 @@ class Films extends React.Component {
   }
 
   render() {
-    const filmCards = this.state.films.map((film, index) => {
-      return <FilmCard film={film} key={index} />;
+    const filmCards = this.state.films.map(film => {
+      return <FilmCard film={film} key={film.episode_id} />;
     });
     const { error } = this.state;
 
