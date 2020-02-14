@@ -1,6 +1,7 @@
 import React from 'react';
 import { filmsService } from '../../App';
 import Loader from '../loader/Loader';
+import AlertMessage from '../alert-message/AlertMessage';
 import './Film.css';
 
 class Film extends React.Component {
@@ -9,23 +10,38 @@ class Film extends React.Component {
   constructor() {
     super();
     this.state = {
-      film: null
+      film: null,
+      error: null
     };
   }
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    filmsService.getFilmById(id - 1).then(film => {
-      this.isLoading = false;
-      this.setState({ film });
-    });
+    filmsService
+      .getFilmById(id)
+      .then(film => {
+        this.isLoading = false;
+        this.setState({ film });
+      })
+      .catch(error => {
+        this.isLoading = false;
+        this.setState({
+          error: {
+            title: 'Ops, something wrong',
+            text: 'Probably problem with network or API, please try again later. ',
+            message: error.message
+          }
+        });
+      });
   }
 
   render() {
     const { film } = this.state;
+    const { error } = this.state;
 
     return (
       <React.Fragment>
+        {error && <AlertMessage error={error} close={() => this.closeMessage()} />}
         {this.isLoading ? (
           <Loader />
         ) : (
