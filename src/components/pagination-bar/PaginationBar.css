@@ -1,0 +1,33 @@
+.pagination-link {
+  color: white;
+}
+
+.pagination-ellipsis {
+  color: white;
+}
+
+.pagination-next {
+  color: white;
+}
+
+.pagination-previous {
+  color: white;
+}
+
+.pagination-link:hover {
+  cursor: pointer;
+  color: #ffe81f;
+  border-color: #ffff7f;
+}
+
+.pagination-next:hover:not([disabled]) {
+  cursor: pointer;
+  color: #ffe81f;
+  border-color: #ffff7f;
+}
+
+.pagination-previous:hover:not([disabled]) {
+  cursor: pointer;
+  color: #ffe81f;
+  border-color: #ffff7f;
+}

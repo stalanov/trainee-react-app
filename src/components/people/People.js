@@ -1,4 +1,5 @@
 import React from 'react';
+import PaginationBar from '../pagination-bar/PaginationBar';
 
 class People extends React.Component {
   isLoading = true;
@@ -13,7 +14,7 @@ class People extends React.Component {
   }
 
   render() {
-    return <div />;
+    return <PaginationBar current={9} total={9} />;
   }
 }
 
