@@ -1,0 +1,36 @@
+.person-card {
+  background-color: transparent;
+  color: white;
+  border: 5px solid #ffe81f;
+  margin: 15px;
+  text-align: center;
+}
+
+.person-card:hover {
+  color: white;
+  border: 5px solid #ffff7f;
+}
+
+.person-card__width {
+  width: 350px;
+}
+
+@media only screen and (max-width: 768px) {
+  .person-card__width {
+    width: auto;
+  }
+}
+
+.person-card__poster {
+  max-width: 200px;
+}
+
+.person-card__content {
+  padding-top: 1.5rem;
+  padding-right: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.person-card__title {
+  color: white;
+}
