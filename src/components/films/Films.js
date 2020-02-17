@@ -18,7 +18,7 @@ class Films extends React.Component {
 
   componentDidMount() {
     filmsService
-      .getFilms()
+      .getFilmsPage(1)
       .then(films => {
         films.sort((a, b) => a.episode_id - b.episode_id);
         this.isLoading = false;

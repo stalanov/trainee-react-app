@@ -18,7 +18,7 @@ class Film extends React.Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     filmsService
-      .getFilmById(id)
+      .getFilmById(+id)
       .then(film => {
         this.isLoading = false;
         this.setState({ film });
@@ -55,7 +55,7 @@ class Film extends React.Component {
           film && (
             <div className="media film">
               <div className="media-left">
-                <img className="film-card__poster" src={film.posterUrl || '../../broken-image.png'} alt="film poster" />
+                <img className="film-card__poster" src={film.posterUrl} alt="film poster" />
               </div>
               <div className="media-content film__content">
                 <p className="title is-2 film__title">
