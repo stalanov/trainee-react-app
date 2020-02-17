@@ -2,6 +2,10 @@
   margin: auto;
 }
 
+.pagination-bar.columns:last-child {
+  margin: auto;
+}
+
 .pagination-link {
   color: white;
 }

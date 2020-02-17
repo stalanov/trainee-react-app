@@ -5,10 +5,6 @@ class PeopleService {
   pages = new Map();
   count = 0;
 
-  constructor() {
-    this.fetchPeoplePage(1);
-  }
-
   async getPeoplePage(page) {
     if (!this.pages.has(page)) {
       await this.fetchPeoplePage(page);
@@ -21,20 +17,23 @@ class PeopleService {
     const data = await response.json();
     this.count = data.count;
     const people = data.results;
+    await this.cachePeople(people);
+    this.pages.set(page, people);
+  }
+
+  async cachePeople(people) {
     const portraitUrls = await this.takeImages(people);
     for (let i = 0; i < people.length; i++) {
       const person = people[i];
       const portraitUrl = portraitUrls[i];
-      if (!portraitUrl || portraitUrl === 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg') {
-        person.portraitUrl = '../../anonymous.png';
-      } else {
-        person.portraitUrl = portraitUrl;
-      }
+      person.portraitUrl =
+        portraitUrl && portraitUrl !== 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg'
+          ? portraitUrl
+          : '../../anonymous.png';
       const id = +person.url.match(/\d+/)[0];
       person.personId = id;
       this.people.set(id, person);
     }
-    this.pages.set(page, people);
   }
 
   takeImages(people) {
@@ -42,10 +41,6 @@ class PeopleService {
       return getImageUrl(person.name);
     });
     return Promise.all(urls);
-  }
-
-  getCount() {
-    return this.count;
   }
 }
 

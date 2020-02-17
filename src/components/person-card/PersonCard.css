@@ -1,5 +1,4 @@
 .person-card {
-  background-color: transparent;
   color: white;
   border: 5px solid #ffe81f;
   margin: 10px;
@@ -12,7 +11,7 @@
 }
 
 .person-card__width {
-  width: 355px;
+  width: 350px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -27,17 +26,13 @@
 }
 
 .person-card__poster {
-  margin-left: 1rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin: 1rem 0 1rem 1rem;
   max-width: 200px;
   max-height: 320px;
 }
 
 .person-card__content {
-  padding-top: 1.5rem;
-  padding-right: 1rem;
-  padding-bottom: 1.5rem;
+  margin: 1rem 1rem 1rem 0;
 }
 
 .person-card__title {

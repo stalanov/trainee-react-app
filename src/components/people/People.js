@@ -30,7 +30,7 @@ class People extends React.Component {
     peopleService
       .getPeoplePage(page)
       .then(people => {
-        this.count = peopleService.getCount();
+        this.count = peopleService.count;
         this.isLoading = false;
         this.setState({
           people
@@ -39,6 +39,7 @@ class People extends React.Component {
       .catch(error => {
         this.isLoading = false;
         this.setState({
+          people: [],
           error: {
             title: 'Ops, something wrong',
             text: 'Probably problem with network or API, please try again later. ',
@@ -60,13 +61,17 @@ class People extends React.Component {
     });
     const { error } = this.state;
     const total = Math.ceil(this.count / this.PAGE_SIZE);
+    const paginationBar =
+      !error && total ? (
+        <PaginationBar current={this.page} total={total} goToPage={page => this.goToPage(page)} />
+      ) : null;
 
     return (
       <React.Fragment>
+        {paginationBar}
         {error && <AlertMessage error={error} close={() => this.closeMessage()} />}
-        <PaginationBar current={this.page} total={total} goToPage={page => this.goToPage(page)} />
         {this.isLoading ? <Loader /> : <div className="columns is-multiline is-centered">{people}</div>}
-        <PaginationBar current={this.page} total={total} goToPage={page => this.goToPage(page)} />
+        {paginationBar}
       </React.Fragment>
     );
   }

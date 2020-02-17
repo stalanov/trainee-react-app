@@ -25,14 +25,24 @@ function PaginationBar(props) {
   };
 
   paginationList.push(<PaginationLink number={1} current={isFirstPageCurrent} key="1" goToPage={goToPage} />);
-  if (previousPage >= 3) paginationList.push(<PaginationEllipsis key="2" />);
-  if (previousPage >= 2) paginationList.push(<PaginationLink number={previousPage} key="3" goToPage={goToPage} />);
+  if (previousPage >= 3) {
+    paginationList.push(<PaginationEllipsis key="2" />);
+  }
+  if (previousPage >= 2) {
+    paginationList.push(<PaginationLink number={previousPage} key="3" goToPage={goToPage} />);
+  }
   if (!isFirstPageCurrent && !isLastPageCurrent) {
     paginationList.push(<PaginationLink number={current} current={true} key="4" />);
   }
-  if (nextPage <= total - 1) paginationList.push(<PaginationLink number={nextPage} key="5" goToPage={goToPage} />);
-  if (nextPage <= total - 2) paginationList.push(<PaginationEllipsis key="6" />);
-  paginationList.push(<PaginationLink number={total} current={isLastPageCurrent} key="7" goToPage={goToPage} />);
+  if (nextPage <= total - 1) {
+    paginationList.push(<PaginationLink number={nextPage} key="5" goToPage={goToPage} />);
+  }
+  if (nextPage <= total - 2) {
+    paginationList.push(<PaginationEllipsis key="6" />);
+  }
+  if (total) {
+    paginationList.push(<PaginationLink number={total} current={isLastPageCurrent} key="7" goToPage={goToPage} />);
+  }
 
   return (
     <div className="columns is-centered pagination-bar">
