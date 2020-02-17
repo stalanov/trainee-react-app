@@ -2,7 +2,7 @@
   background-color: transparent;
   color: white;
   border: 5px solid #ffe81f;
-  margin: 15px;
+  margin: 10px;
   text-align: center;
 }
 
@@ -12,17 +12,26 @@
 }
 
 .person-card__width {
-  width: 350px;
+  width: 355px;
 }
 
 @media only screen and (max-width: 768px) {
+  .person-card {
+    border: 0px;
+  }
+
   .person-card__width {
     width: auto;
+    border: 5px solid #ffe81f;
   }
 }
 
 .person-card__poster {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
   max-width: 200px;
+  max-height: 320px;
 }
 
 .person-card__content {
@@ -32,5 +41,6 @@
 }
 
 .person-card__title {
+  margin-top: 1rem;
   color: white;
 }

@@ -7,8 +7,9 @@ function FilmCard(props) {
   const { person } = props;
   const link = '/people/' + person.personId;
   return (
-    <Link to={link} className="">
-      <div className="media person-card">
+    <Link to={link} className="person-card">
+      <p className="title is-4 person-card__title">{person.name}</p>
+      <div className="media person-card__width">
         <div className="media-left">
           <img
             className="person-card__poster"
@@ -17,7 +18,6 @@ function FilmCard(props) {
           />
         </div>
         <div className="media-content person-card__content">
-          <p className="title is-4 person-card__title">{person.name}</p>
           <div className="content">
             <p>
               Birth year <br />

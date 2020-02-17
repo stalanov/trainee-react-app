@@ -2,24 +2,18 @@ import getImageUrl from '../helpers/ImageFetcher';
 
 class PeopleService {
   people = new Map();
-  pageSize = 10;
-  count = Infinity;
+  pages = new Map();
+  count = 0;
 
   constructor() {
     this.fetchPeoplePage(1);
   }
 
   async getPeoplePage(page) {
-    const peoplePage = [];
-    console.log('from ' + ((page - 1) * this.pageSize + 1) + ' to ' + Math.min(page * this.pageSize, this.count));
-    for (let i = (page - 1) * this.pageSize + 1; i <= Math.min(page * this.pageSize, this.count); i++) {
-      if (this.people.has(i)) {
-        peoplePage.push(this.people.get(i));
-      } else {
-        return await this.fetchPeoplePage(page);
-      }
+    if (!this.pages.has(page)) {
+      await this.fetchPeoplePage(page);
     }
-    return peoplePage;
+    return this.pages.get(page);
   }
 
   async fetchPeoplePage(page) {
@@ -30,12 +24,17 @@ class PeopleService {
     const portraitUrls = await this.takeImages(people);
     for (let i = 0; i < people.length; i++) {
       const person = people[i];
-      person.portraitUrl = portraitUrls[i];
+      const portraitUrl = portraitUrls[i];
+      if (!portraitUrl || portraitUrl === 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg') {
+        person.portraitUrl = '../../anonymous.png';
+      } else {
+        person.portraitUrl = portraitUrl;
+      }
       const id = +person.url.match(/\d+/)[0];
       person.personId = id;
       this.people.set(id, person);
     }
-    return people;
+    this.pages.set(page, people);
   }
 
   takeImages(people) {

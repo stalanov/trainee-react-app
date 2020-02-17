@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 function PaginationLink(props) {
   const { current, number, goToPage } = props;
   const classes = 'pagination-link' + (current ? ' is-current' : '');
-  const goToSpecPage = () => goToPage(number);
+
+  const goToSpecPage = () => {
+    if (!current) {
+      goToPage(number);
+    }
+  };
 
   return (
     <li className={classes} aria-label={'Goto page ' + number} onClick={goToSpecPage}>

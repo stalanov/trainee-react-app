@@ -24,7 +24,8 @@ class People extends React.Component {
   }
 
   goToPage(page) {
-    console.log(page + ' loading!');
+    this.isLoading = true;
+    this.setState({});
     this.page = page;
     peopleService
       .getPeoplePage(page)
@@ -63,6 +64,7 @@ class People extends React.Component {
     return (
       <React.Fragment>
         {error && <AlertMessage error={error} close={() => this.closeMessage()} />}
+        <PaginationBar current={this.page} total={total} goToPage={page => this.goToPage(page)} />
         {this.isLoading ? <Loader /> : <div className="columns is-multiline is-centered">{people}</div>}
         <PaginationBar current={this.page} total={total} goToPage={page => this.goToPage(page)} />
       </React.Fragment>
