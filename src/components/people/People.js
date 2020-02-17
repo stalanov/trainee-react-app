@@ -25,8 +25,8 @@ class People extends React.Component {
 
   goToPage(page) {
     this.isLoading = true;
-    this.setState({});
     this.page = page;
+    this.setState({});
     peopleService
       .getPeoplePage(page)
       .then(people => {
