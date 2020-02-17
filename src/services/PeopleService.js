@@ -21,6 +21,13 @@ class PeopleService {
     this.pages.set(page, people);
   }
 
+  async getPersonById(id) {
+    if (!this.people.has(id)) {
+      await this.fetchPersonById(id);
+    }
+    return this.people.get(id);
+  }
+
   async cachePeople(people) {
     const portraitUrls = await this.takeImages(people);
     for (let i = 0; i < people.length; i++) {
@@ -34,6 +41,12 @@ class PeopleService {
       person.personId = id;
       this.people.set(id, person);
     }
+  }
+
+  async fetchPersonById(id) {
+    const response = await fetch(`https://swapi.co/api/people/${id}/`);
+    const person = await response.json();
+    await this.cacheFilms(Array.of(person));
   }
 
   takeImages(people) {
