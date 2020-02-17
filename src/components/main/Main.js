@@ -4,6 +4,7 @@ import Home from '../home/Home';
 import Films from '../films/Films';
 import Film from '../film/Film';
 import People from '../people/People';
+import Person from '../person/Person';
 import './Main.css';
 
 class Main extends React.Component {
@@ -13,8 +14,9 @@ class Main extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/films" component={Films} />
-          <Route path="/films/:id" component={Film}></Route>
+          <Route path="/films/:id" component={Film} />
           <Route exact path="/people" component={People} />
+          <Route path="/people/:id" component={Person} />
         </Switch>
       </div>
     );

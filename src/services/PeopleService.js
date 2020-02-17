@@ -46,7 +46,7 @@ class PeopleService {
   async fetchPersonById(id) {
     const response = await fetch(`https://swapi.co/api/people/${id}/`);
     const person = await response.json();
-    await this.cacheFilms(Array.of(person));
+    await this.cachePeople(Array.of(person));
   }
 
   takeImages(people) {
