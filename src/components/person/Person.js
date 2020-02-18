@@ -2,6 +2,7 @@ import React from 'react';
 import { peopleService } from '../../App';
 import Loader from '../loader/Loader';
 import AlertMessage from '../alert-message/AlertMessage';
+import './Person.css';
 
 class Person extends React.Component {
   isLoading = true;
@@ -52,19 +53,21 @@ class Person extends React.Component {
         ) : (
           !error &&
           person && (
-            <div className="media film">
-              <div className="media-left">
-                <img className="film-card__poster" src={person.portraitUrl} alt="person portrait" />
-              </div>
-              <div className="media-content film__content">
-                <p className="title is-2 film__title">{person.name}</p>
-                <div className="content">
-                  <p>Birth year: {person.birth_year}</p>
-                  <p>Gender: {person.gender}</p>
-                  <p>Height: {person.height}</p>
-                  <p>Mass: {person.mass}</p>
-                  <p>Hair color: {person.hair_color}</p>
-                  <p>Skin color: {person.skin_color}</p>
+            <div className="columns is-centered">
+              <div className="media person">
+                <div className="media-left">
+                  <img className="person__portrait" src={person.portraitUrl} alt="person portrait" />
+                </div>
+                <div className="media-content person__content">
+                  <p className="title is-2 person__title">{person.name}</p>
+                  <div className="content">
+                    <p>Birth year: {person.birth_year}</p>
+                    <p>Gender: {person.gender}</p>
+                    <p>Height: {person.height}</p>
+                    <p>Mass: {person.mass}</p>
+                    <p>Hair color: {person.hair_color}</p>
+                    <p>Skin color: {person.skin_color}</p>
+                  </div>
                 </div>
               </div>
             </div>
