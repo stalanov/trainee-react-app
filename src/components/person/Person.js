@@ -1,27 +1,27 @@
 import React from 'react';
-import { filmsService } from '../../App';
+import { peopleService } from '../../App';
 import Loader from '../loader/Loader';
 import AlertMessage from '../alert-message/AlertMessage';
-import './Film.css';
+import './Person.css';
 
-class Film extends React.Component {
+class Person extends React.Component {
   isLoading = true;
 
   constructor() {
     super();
     this.state = {
-      film: null,
+      person: null,
       error: null
     };
   }
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    filmsService
-      .getFilmById(+id)
-      .then(film => {
+    peopleService
+      .getPersonById(+id)
+      .then(person => {
         this.isLoading = false;
-        this.setState({ film });
+        this.setState({ person });
       })
       .catch(error => {
         this.isLoading = false;
@@ -42,7 +42,7 @@ class Film extends React.Component {
   }
 
   render() {
-    const { film } = this.state;
+    const { person } = this.state;
     const { error } = this.state;
 
     return (
@@ -52,30 +52,21 @@ class Film extends React.Component {
           <Loader />
         ) : (
           !error &&
-          film && (
+          person && (
             <div className="columns is-centered">
-              <div className="media film">
+              <div className="media person">
                 <div className="media-left">
-                  <img className="film__poster" src={film.posterUrl} alt="film poster" />
+                  <img className="person__portrait" src={person.portraitUrl} alt="person portrait" />
                 </div>
-                <div className="media-content film__content">
-                  <p className="title is-2 film__title">
-                    Star Wars: Episode {film.episode_id} - {film.title}
-                  </p>
-                  <p className="subtitle is-4 film__subtitle">Release date: {film.release_date}</p>
+                <div className="media-content person__content">
+                  <p className="title is-2 person__title">{person.name}</p>
                   <div className="content">
-                    <p>
-                      Director <br />
-                      {film.director}
-                    </p>
-                    <p>
-                      Producers <br />
-                      {film.producer}
-                    </p>
-                    <p>
-                      Description <br />
-                      {film.opening_crawl}
-                    </p>
+                    <p>Birth year: {person.birth_year}</p>
+                    <p>Gender: {person.gender}</p>
+                    <p>Height: {person.height}</p>
+                    <p>Mass: {person.mass}</p>
+                    <p>Hair color: {person.hair_color}</p>
+                    <p>Skin color: {person.skin_color}</p>
                   </div>
                 </div>
               </div>
@@ -87,4 +78,4 @@ class Film extends React.Component {
   }
 }
 
-export default Film;
+export default Person;
