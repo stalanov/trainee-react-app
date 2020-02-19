@@ -1,4 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Star Wars API viewer
+
+This is a small trainee web-application was made using React. It provide client for viewing [Star Wars API](https://swapi.co/)
+
+Project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+To run project locally make next steps:
+
+1. [Install NodeJs](https://nodejs.org/en/)
+2. Clone or download this repository
+3. Execute `npm install`
+4. Execute `npm start`
 
 ## Available Scripts
 
