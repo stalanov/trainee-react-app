@@ -26,9 +26,13 @@ class PlanetsService {
     for (let i = 0; i < planets.length; i++) {
       const planet = planets[i];
       const pictureUrl = pictureUrls[i];
-      planet.pictureUrl = pictureUrl ? pictureUrl : '../../anonymous.png';
+      planet.pictureUrl =
+        pictureUrl &&
+        pictureUrl !== 'https://upload.wikimedia.org/wikipedia/commons/7/72/Chott_el_Djerid_-_Lars_homestead.jpg'
+          ? pictureUrl
+          : 'https://upload.wikimedia.org/wikipedia/commons/8/83/Random_planet_by_lilyu-1.png';
       const id = +planet.url.match(/\d+/)[0];
-      planet.planetsId = id;
+      planet.planetId = id;
       this.planets.set(id, planet);
     }
   }

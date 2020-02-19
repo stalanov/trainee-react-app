@@ -1,4 +1,8 @@
 import React from 'react';
+import PlanetCard from './planet-card/PlanetCard';
+import PaginationBar from '../shared/pagination-bar/PaginationBar';
+import Loader from '../shared/loader/Loader';
+import AlertMessage from '../shared/alert-message/AlertMessage';
 import { planetsService } from '../../App';
 
 class Planets extends React.Component {
@@ -52,7 +56,24 @@ class Planets extends React.Component {
   }
 
   render() {
-    return <div />;
+    const planets = this.state.planets.map(planet => {
+      return <PlanetCard person={planet} key={planet.planetId} />;
+    });
+    const { error } = this.state;
+    const total = Math.ceil(this.count / this.PAGE_SIZE);
+    const paginationBar =
+      !error && total ? (
+        <PaginationBar current={this.page} total={total} goToPage={page => this.goToPage(page)} />
+      ) : null;
+
+    return (
+      <React.Fragment>
+        {paginationBar}
+        {error && <AlertMessage error={error} close={() => this.closeMessage()} />}
+        {this.isLoading ? <Loader /> : <div className="columns is-multiline is-centered">{planets}</div>}
+        {paginationBar}
+      </React.Fragment>
+    );
   }
 }
 
