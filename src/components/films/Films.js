@@ -1,8 +1,8 @@
 import React from 'react';
-import FilmCard from '../film-card/FilmCard';
-import Loader from '../loader/Loader';
+import FilmCard from './film-card/FilmCard';
+import Loader from '../shared/loader/Loader';
 import { filmsService } from '../../App';
-import AlertMessage from '../alert-message/AlertMessage';
+import AlertMessage from '../shared/alert-message/AlertMessage';
 
 class Films extends React.Component {
   isLoading = true;

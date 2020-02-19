@@ -2,9 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from '../home/Home';
 import Films from '../films/Films';
-import Film from '../film/Film';
+import Film from '../films/film/Film';
 import People from '../people/People';
-import Person from '../person/Person';
+import Person from '../people/person/Person';
 import './Main.css';
 
 class Main extends React.Component {

@@ -1,8 +1,8 @@
 import React from 'react';
-import PaginationBar from '../pagination-bar/PaginationBar';
-import PersonCard from '../person-card/PersonCard';
-import Loader from '../loader/Loader';
-import AlertMessage from '../alert-message/AlertMessage';
+import PaginationBar from '../shared/pagination-bar/PaginationBar';
+import PersonCard from './person-card/PersonCard';
+import Loader from '../shared/loader/Loader';
+import AlertMessage from '../shared/alert-message/AlertMessage';
 import { peopleService } from '../../App';
 
 class People extends React.Component {

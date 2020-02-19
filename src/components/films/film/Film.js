@@ -1,7 +1,7 @@
 import React from 'react';
-import { filmsService } from '../../App';
-import Loader from '../loader/Loader';
-import AlertMessage from '../alert-message/AlertMessage';
+import { filmsService } from '../../../App';
+import Loader from '../../shared/loader/Loader';
+import AlertMessage from '../../shared/alert-message/AlertMessage';
 import './Film.css';
 
 class Film extends React.Component {
