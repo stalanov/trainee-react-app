@@ -1,7 +1,7 @@
 import React from 'react';
-import { peopleService } from '../../App';
-import Loader from '../loader/Loader';
-import AlertMessage from '../alert-message/AlertMessage';
+import { peopleService } from '../../../App';
+import Loader from '../../shared/loader/Loader';
+import AlertMessage from '../../shared/alert-message/AlertMessage';
 import './Person.css';
 
 class Person extends React.Component {
