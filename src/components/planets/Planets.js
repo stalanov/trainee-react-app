@@ -57,7 +57,7 @@ class Planets extends React.Component {
 
   render() {
     const planets = this.state.planets.map(planet => {
-      return <PlanetCard person={planet} key={planet.planetId} />;
+      return <PlanetCard planet={planet} key={planet.planetId} />;
     });
     const { error } = this.state;
     const total = Math.ceil(this.count / this.PAGE_SIZE);

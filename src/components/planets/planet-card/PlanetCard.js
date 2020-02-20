@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './PlanetCard.css';
 
 function FilmCard(props) {
-  const { person: planet } = props;
+  const { planet } = props;
   const link = '/planets/' + planet.planetId;
 
   return (
-    <Link to={link} className="person-card">
-      <p className="title is-4 person-card__title">{planet.name}</p>
-      <div className="media person-card__width">
+    <Link to={link} className="planet-card">
+      <p className="title is-4 planet-card__title">{planet.name}</p>
+      <div className="media planet-card__width">
         <div className="media-left">
-          <img className="person-card__poster" src={planet.pictureUrl} alt="person portrait" />
+          <img className="planet-card__picture" src={planet.pictureUrl} alt="planet img" />
         </div>
-        <div className="media-content person-card__content">
+        <div className="media-content planet-card__content">
           <div className="content">
             <p>
               Diameter <br />
