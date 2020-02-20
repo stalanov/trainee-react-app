@@ -21,6 +21,13 @@ class PlanetsService {
     this.pages.set(page, planets);
   }
 
+  async getPlanetById(id) {
+    if (!this.planets.has(id)) {
+      await this.fetchPlanetById(id);
+    }
+    return this.planets.get(id);
+  }
+
   async cachePlanets(planets) {
     const pictureUrls = await this.takeImages(planets);
     for (let i = 0; i < planets.length; i++) {
@@ -35,6 +42,12 @@ class PlanetsService {
       planet.planetId = id;
       this.planets.set(id, planet);
     }
+  }
+
+  async fetchPlanetById(id) {
+    const response = await fetch(`https://swapi.co/api/planets/${id}/`);
+    const planet = await response.json();
+    await this.cachePlanets(Array.of(planet));
   }
 
   takeImages(planets) {
