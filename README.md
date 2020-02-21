@@ -1,6 +1,6 @@
 ## Star Wars API viewer
 
-This is a small trainee web-application was made using React. It provide client for viewing [Star Wars API](https://swapi.co/)
+This is a small trainee web-application was made using React. It provides client for viewing [Star Wars API](https://swapi.co/)
 
 Project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
