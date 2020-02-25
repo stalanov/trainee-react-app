@@ -7,6 +7,7 @@ import People from '../people/People';
 import Person from '../people/person/Person';
 import Planets from '../planets/Planets';
 import Planet from '../planets/planet/Planet';
+import Species from '../species/Species';
 import './Main.css';
 
 class Main extends React.Component {
@@ -21,6 +22,7 @@ class Main extends React.Component {
           <Route path="/people/:id" component={Person} />
           <Route exact path="/planets" component={Planets} />
           <Route path="/planets/:id" component={Planet} />
+          <Route exact path="/species" component={Species} />
         </Switch>
       </div>
     );
