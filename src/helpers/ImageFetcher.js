@@ -1,5 +1,3 @@
-let url = 'https://en.wikipedia.org/w/api.php';
-
 const params = {
   action: 'query',
   formatversion: 2,
@@ -10,12 +8,12 @@ const params = {
   redirects: 1
 };
 
-url = url + '?origin=*';
-Object.keys(params).forEach(function(key) {
-  url += '&' + key + '=' + params[key];
-});
-
 export default async function getImageUrl(title) {
+  let url = 'https://en.wikipedia.org/w/api.php?origin=*';
+  Object.keys(params).forEach(function(key) {
+    url += '&' + key + '=' + params[key];
+  });
+
   url += '&titles=' + title;
 
   return fetch(url)
