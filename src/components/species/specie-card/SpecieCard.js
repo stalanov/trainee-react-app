@@ -8,23 +8,14 @@ function SpecieCard(props) {
   const link = '/species/' + specie.specieId;
 
   return (
-    <Link to={link} className="person-card">
-      <p className="title is-4 person-card__title">{specie.name}</p>
-      <p className="subtitle is-6 film-card__subtitle">
-        Classification: {specie.classification} <br /> Designation: {specie.designation}
-      </p>
-      <div className="media person-card__width">
-        <div className="media-content person-card__content">
-          <div className="content">
-            <p>
-              Average lifespan <br />
-              {specie.average_lifespan}
-            </p>
-            <p>
-              Language <br />
-              {specie.language}
-            </p>
-          </div>
+    <Link to={link}>
+      <div className="specie-card specie-card__width">
+        <p className="title is-4 specie-card__title">{specie.name}</p>
+        <div className="specie-card__content">
+          <p>Classification: {specie.classification}</p>
+          <p>Designation: {specie.designation}</p>
+          <p>Average lifespan: {specie.average_lifespan}</p>
+          <p>Language: {specie.language}</p>
         </div>
       </div>
     </Link>

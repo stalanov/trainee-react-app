@@ -1,0 +1,29 @@
+.specie-card {
+  color: white;
+  border: 5px solid #ffe81f;
+  margin: 10px;
+}
+
+.specie-card:hover {
+  color: white;
+  border: 5px solid #ffff7f;
+}
+
+.specie-card__width {
+  width: 300px;
+}
+
+@media only screen and (max-width: 768px) {
+  .specie-card__width {
+    width: auto;
+  }
+}
+
+.specie-card__content {
+  margin: 1rem;
+}
+
+.specie-card__title {
+  margin: 1rem;
+  color: white;
+}
