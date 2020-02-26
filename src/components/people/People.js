@@ -71,7 +71,7 @@ class People extends React.Component {
         {paginationBar}
         {error && <AlertMessage error={error} close={() => this.closeMessage()} />}
         {this.isLoading ? <Loader /> : <div className="columns is-multiline is-centered">{people}</div>}
-        {paginationBar}
+        {!this.isLoading && paginationBar}
       </React.Fragment>
     );
   }
