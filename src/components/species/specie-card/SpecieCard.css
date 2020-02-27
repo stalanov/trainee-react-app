@@ -2,6 +2,7 @@
   color: white;
   border: 5px solid #ffe81f;
   margin: 10px;
+  text-align: center;
 }
 
 .specie-card:hover {
@@ -21,6 +22,7 @@
 
 .specie-card__content {
   margin: 1rem;
+  text-align: left;
 }
 
 .specie-card__title {
