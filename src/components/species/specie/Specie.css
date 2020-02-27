@@ -1,0 +1,17 @@
+.specie {
+  max-width: 1200px;
+  border: 5px solid #ffe81f;
+  margin: 15px;
+  color: white;
+  text-align: center;
+}
+
+.specie__content {
+  margin: 1.5rem;
+  text-align: left;
+}
+
+.specie__title {
+  color: white;
+  margin: 1.5rem;
+}

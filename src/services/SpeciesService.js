@@ -19,6 +19,13 @@ class SpeciesService {
     this.pages.set(page, species);
   }
 
+  async getSpecieById(id) {
+    if (!this.species.has(id)) {
+      await this.fetchSpecieById(id);
+    }
+    return this.species.get(id);
+  }
+
   async cacheSpecies(species) {
     for (let i = 0; i < species.length; i++) {
       const specie = species[i];
@@ -26,6 +33,12 @@ class SpeciesService {
       specie.specieId = id;
       this.species.set(id, specie);
     }
+  }
+
+  async fetchSpecieById(id) {
+    const response = await fetch(`https://swapi.co/api/species/${id}/`);
+    const specie = await response.json();
+    await this.cacheSpecies(Array.of(specie));
   }
 }
 
