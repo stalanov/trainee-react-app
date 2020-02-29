@@ -1,20 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './StarshipCard.css';
 
 function FilmCard(props) {
   const { starship } = props;
   const link = '/starships/' + starship.shipId;
 
   return (
-    <Link to={link} className="person-card">
-      <p className="title is-4 person-card__title">{starship.name}</p>
-      <p className="subtitle is-6 film-card__subtitle">Model: {starship.model}</p>
-      <div className="media person-card__width">
+    <Link to={link} className="starship-card">
+      <p className="title is-4 starship-card__title">{starship.name}</p>
+      <p className="subtitle is-6 starship-card__subtitle">Model: {starship.model}</p>
+      <div className="media starship-card__width">
         <div className="media-left">
-          <img className="person-card__poster" src={starship.pictureUrl} alt="starship img" />
+          <img className="starship-card__picture" src={starship.pictureUrl} alt="starship img" />
         </div>
-        <div className="media-content person-card__content">
+        <div className="media-content starship-card__content">
           <div className="content">
             <p>
               Class <br />

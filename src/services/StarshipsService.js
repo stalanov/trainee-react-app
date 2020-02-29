@@ -26,7 +26,7 @@ class StarshipsService {
     for (let i = 0; i < starships.length; i++) {
       const starship = starships[i];
       const pictureUrl = pictureUrls[i];
-      starship.pictureUrl = pictureUrl;
+      starship.pictureUrl = pictureUrl ? pictureUrl : '../../star-wars-ships.jpg';
       if (starship.name === 'Executor') {
         starship.pictureUrl = 'https://upload.wikimedia.org/wikipedia/en/d/d9/ImperialstarDestroyer480ppx.png';
       }
