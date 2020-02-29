@@ -10,6 +10,7 @@ import Planet from '../planets/planet/Planet';
 import Species from '../species/Species';
 import Specie from '../species/specie/Specie';
 import Starships from '../starships/Starships';
+import Starship from '../starships/starship/Starship';
 import './Main.css';
 
 class Main extends React.Component {
@@ -27,6 +28,7 @@ class Main extends React.Component {
           <Route exact path="/species" component={Species} />
           <Route path="/species/:id" component={Specie} />
           <Route exact path="/starships" component={Starships} />
+          <Route path="/starships/:id" component={Starship} />
         </Switch>
       </div>
     );
