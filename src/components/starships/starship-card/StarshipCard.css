@@ -1,0 +1,46 @@
+.starship-card {
+  color: white;
+  border: 5px solid #ffe81f;
+  margin: 10px;
+  text-align: center;
+}
+
+.starship-card:hover {
+  color: white;
+  border: 5px solid #ffff7f;
+}
+
+.starship-card__width {
+  width: 400px;
+}
+
+@media only screen and (max-width: 768px) {
+  .starship-card {
+    border: 0px;
+  }
+
+  .starship-card__width {
+    width: auto;
+    border: 5px solid #ffe81f;
+  }
+}
+
+.starship-card__picture {
+  margin: 1rem 0 1rem 1rem;
+  max-width: 200px;
+  max-height: 320px;
+}
+
+.starship-card__content {
+  margin: 1rem 1rem 1rem 0;
+}
+
+.starship-card__title {
+  margin-top: 1rem;
+  color: white;
+}
+
+.starship-card__subtitle {
+  margin-top: 1rem;
+  color: white;
+}

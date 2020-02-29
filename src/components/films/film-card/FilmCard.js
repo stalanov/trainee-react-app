@@ -7,8 +7,8 @@ function FilmCard(props) {
   const { film } = props;
   const link = '/films/' + film.filmId;
   return (
-    <Link to={link} className="film-card film-card__width">
-      <div className="media">
+    <Link to={link} className="film-card">
+      <div className="media film-card__width">
         <div className="media-left">
           <img className="film-card__poster" src={film.posterUrl} alt="film poster" />
         </div>

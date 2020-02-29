@@ -16,8 +16,13 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .film-card {
+    border: 0px;
+  }
+
   .film-card__width {
     width: auto;
+    border: 5px solid #ffe81f;
   }
 }
 
