@@ -37,7 +37,7 @@ function FilmCard(props) {
 }
 
 FilmCard.propTypes = {
-  person: PropTypes.shape({
+  starship: PropTypes.shape({
     name: PropTypes.string,
     model: PropTypes.string,
     starship_class: PropTypes.string,

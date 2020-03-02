@@ -1,11 +1,11 @@
 import React from 'react';
 import PaginationBar from '../shared/pagination-bar/PaginationBar';
-import SpecieCard from './specie-card/SpecieCard';
+import VehicleCard from './vehicles-card/VehicleCard';
 import Loader from '../shared/loader/Loader';
 import AlertMessage from '../shared/alert-message/AlertMessage';
-import { speciesService } from '../../App';
+import { vehiclesService } from '../../App';
 
-class Species extends React.Component {
+class Vehicles extends React.Component {
   PAGE_SIZE = 10;
   isLoading = true;
   count = 0;
@@ -14,7 +14,7 @@ class Species extends React.Component {
   constructor() {
     super();
     this.state = {
-      species: [],
+      vehicles: [],
       error: null
     };
   }
@@ -27,13 +27,13 @@ class Species extends React.Component {
     this.isLoading = true;
     this.page = page;
     this.setState({});
-    speciesService
-      .getSpeciesPage(page)
-      .then(species => {
-        this.count = speciesService.count;
+    vehiclesService
+      .getVehiclesPage(page)
+      .then(vehicles => {
+        this.count = vehiclesService.count;
         this.isLoading = false;
         this.setState({
-          species: species
+          vehicles: vehicles
         });
       })
       .catch(error => {
@@ -56,8 +56,8 @@ class Species extends React.Component {
   }
 
   render() {
-    const species = this.state.species.map(specie => {
-      return <SpecieCard specie={specie} key={specie.specieId} />;
+    const vehicles = this.state.vehicles.map(vehicle => {
+      return <VehicleCard vehicle={vehicle} key={vehicle.vehicleId} />;
     });
     const { error } = this.state;
     const total = Math.ceil(this.count / this.PAGE_SIZE);
@@ -70,11 +70,11 @@ class Species extends React.Component {
       <React.Fragment>
         {paginationBar}
         {error && <AlertMessage error={error} close={() => this.closeMessage()} />}
-        {this.isLoading ? <Loader /> : <div className="columns is-multiline is-centered">{species}</div>}
+        {this.isLoading ? <Loader /> : <div className="columns is-multiline is-centered">{vehicles}</div>}
         {!this.isLoading && paginationBar}
       </React.Fragment>
     );
   }
 }
 
-export default Species;
+export default Vehicles;

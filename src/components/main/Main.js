@@ -11,6 +11,7 @@ import Species from '../species/Species';
 import Specie from '../species/specie/Specie';
 import Starships from '../starships/Starships';
 import Starship from '../starships/starship/Starship';
+import Vehicles from '../vehicles/Vehicles';
 import './Main.css';
 
 class Main extends React.Component {
@@ -29,6 +30,7 @@ class Main extends React.Component {
           <Route path="/species/:id" component={Specie} />
           <Route exact path="/starships" component={Starships} />
           <Route path="/starships/:id" component={Starship} />
+          <Route exact path="/vehicles" component={Vehicles} />
         </Switch>
       </div>
     );
