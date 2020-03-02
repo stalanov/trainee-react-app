@@ -4,7 +4,7 @@ import Loader from '../../shared/loader/Loader';
 import AlertMessage from '../../shared/alert-message/AlertMessage';
 import './Planet.css';
 
-class Person extends React.Component {
+class Planet extends React.Component {
   isLoading = true;
 
   constructor() {
@@ -80,4 +80,4 @@ class Person extends React.Component {
   }
 }
 
-export default Person;
+export default Planet;

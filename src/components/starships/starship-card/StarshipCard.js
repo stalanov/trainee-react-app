@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './StarshipCard.css';
 
-function FilmCard(props) {
+function StarshipCard(props) {
   const { starship } = props;
   const link = '/starships/' + starship.shipId;
 
@@ -36,7 +36,7 @@ function FilmCard(props) {
   );
 }
 
-FilmCard.propTypes = {
+StarshipCard.propTypes = {
   starship: PropTypes.shape({
     name: PropTypes.string,
     model: PropTypes.string,
@@ -46,4 +46,4 @@ FilmCard.propTypes = {
   })
 };
 
-export default FilmCard;
+export default StarshipCard;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './PlanetCard.css';
 
-function FilmCard(props) {
+function PlanetCard(props) {
   const { planet } = props;
   const link = '/planets/' + planet.planetId;
 
@@ -39,7 +39,7 @@ function FilmCard(props) {
   );
 }
 
-FilmCard.propTypes = {
+PlanetCard.propTypes = {
   planet: PropTypes.shape({
     name: PropTypes.string,
     pictureUrl: PropTypes.string,
@@ -50,4 +50,4 @@ FilmCard.propTypes = {
   })
 };
 
-export default FilmCard;
+export default PlanetCard;

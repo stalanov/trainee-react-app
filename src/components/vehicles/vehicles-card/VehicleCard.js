@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './VehicleCard.css';
 
-function Vehicle(props) {
+function VehicleCard(props) {
   const { vehicle } = props;
   const link = '/vehicles/' + vehicle.vehicleId;
 
@@ -22,7 +22,7 @@ function Vehicle(props) {
   );
 }
 
-Vehicle.propTypes = {
+VehicleCard.propTypes = {
   vehicle: PropTypes.shape({
     name: PropTypes.string,
     model: PropTypes.string,
@@ -32,4 +32,4 @@ Vehicle.propTypes = {
   })
 };
 
-export default Vehicle;
+export default VehicleCard;
