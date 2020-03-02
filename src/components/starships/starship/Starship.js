@@ -4,7 +4,7 @@ import Loader from '../../shared/loader/Loader';
 import AlertMessage from '../../shared/alert-message/AlertMessage';
 import './Starship.css';
 
-class Person extends React.Component {
+class Starship extends React.Component {
   isLoading = true;
 
   constructor() {
@@ -84,4 +84,4 @@ class Person extends React.Component {
   }
 }
 
-export default Person;
+export default Starship;
