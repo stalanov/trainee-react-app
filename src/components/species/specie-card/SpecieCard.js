@@ -23,7 +23,7 @@ function SpecieCard(props) {
 }
 
 SpecieCard.propTypes = {
-  person: PropTypes.shape({
+  specie: PropTypes.shape({
     name: PropTypes.string,
     designation: PropTypes.string,
     average_lifespan: PropTypes.string,

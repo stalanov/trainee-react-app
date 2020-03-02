@@ -5,7 +5,7 @@ import Loader from '../shared/loader/Loader';
 import AlertMessage from '../shared/alert-message/AlertMessage';
 import { starshipsService } from '../../App';
 
-class People extends React.Component {
+class Starships extends React.Component {
   PAGE_SIZE = 10;
   isLoading = true;
   count = 0;
@@ -77,4 +77,4 @@ class People extends React.Component {
   }
 }
 
-export default People;
+export default Starships;

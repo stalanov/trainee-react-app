@@ -1,0 +1,35 @@
+.vehicle-card {
+  color: white;
+  border: 5px solid #ffe81f;
+  margin: 10px;
+  text-align: center;
+}
+
+.vehicle-card:hover {
+  color: white;
+  border: 5px solid #ffff7f;
+}
+
+.vehicle-card__width {
+  width: 600px;
+}
+
+@media only screen and (max-width: 768px) {
+  .vehicle-card__width {
+    width: auto;
+  }
+}
+
+.vehicle-card__content {
+  margin: 1rem;
+  text-align: left;
+}
+
+.vehicle-card__title {
+  margin: 1rem;
+  color: white;
+}
+
+.vehicle-card__subtitle {
+  color: white;
+}

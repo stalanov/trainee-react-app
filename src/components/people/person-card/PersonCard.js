@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './PersonCard.css';
 
-function FilmCard(props) {
+function PersonCard(props) {
   const { person } = props;
   const link = '/people/' + person.personId;
 
@@ -31,7 +31,7 @@ function FilmCard(props) {
   );
 }
 
-FilmCard.propTypes = {
+PersonCard.propTypes = {
   person: PropTypes.shape({
     name: PropTypes.string,
     portraitUrl: PropTypes.string,
@@ -40,4 +40,4 @@ FilmCard.propTypes = {
   })
 };
 
-export default FilmCard;
+export default PersonCard;
