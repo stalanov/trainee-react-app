@@ -11,7 +11,7 @@ class SpeciesService {
   }
 
   async fetchSpeciesPage(page) {
-    const response = await fetch(`https://swapi.co/api/species/?page=${page}`);
+    const response = await fetch(`https://swapi.dev/api/species/?page=${page}`);
     const data = await response.json();
     this.count = data.count;
     const species = data.results;
@@ -36,7 +36,7 @@ class SpeciesService {
   }
 
   async fetchSpecieById(id) {
-    const response = await fetch(`https://swapi.co/api/species/${id}/`);
+    const response = await fetch(`https://swapi.dev/api/species/${id}/`);
     const specie = await response.json();
     await this.cacheSpecies(Array.of(specie));
   }

@@ -13,7 +13,7 @@ class PlanetsService {
   }
 
   async fetchPlanetsPage(page) {
-    const response = await fetch(`https://swapi.co/api/planets/?page=${page}`);
+    const response = await fetch(`https://swapi.dev/api/planets/?page=${page}`);
     const data = await response.json();
     this.count = data.count;
     const planets = data.results;
@@ -45,7 +45,7 @@ class PlanetsService {
   }
 
   async fetchPlanetById(id) {
-    const response = await fetch(`https://swapi.co/api/planets/${id}/`);
+    const response = await fetch(`https://swapi.dev/api/planets/${id}/`);
     const planet = await response.json();
     await this.cachePlanets(Array.of(planet));
   }

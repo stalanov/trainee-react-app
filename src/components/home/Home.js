@@ -9,7 +9,7 @@ function Home() {
         <h1 className="has-text-white is-size-2">Hi everyone!</h1>
         <p className="has-text-white is-size-5">
           This is small trainee project was made using React. It is web-application for{' '}
-          <a href="https://swapi.co/">The Star Wars API. </a>
+          <a href="https://swapi.dev/">The Star Wars API. </a>
           Source code could be found <a href="https://github.com/s-talanov/trainee-react-app">here</a>.
         </p>
       </div>

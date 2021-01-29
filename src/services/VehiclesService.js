@@ -11,7 +11,7 @@ class VehiclesService {
   }
 
   async fetchVehiclesPage(page) {
-    const response = await fetch(`https://swapi.co/api/vehicles/?page=${page}`);
+    const response = await fetch(`https://swapi.dev/api/vehicles/?page=${page}`);
     const data = await response.json();
     this.count = data.count;
     const species = data.results;
@@ -36,7 +36,7 @@ class VehiclesService {
   }
 
   async fetchVehicleById(id) {
-    const response = await fetch(`https://swapi.co/api/vehicles/${id}/`);
+    const response = await fetch(`https://swapi.dev/api/vehicles/${id}/`);
     const vehicle = await response.json();
     await this.cacheVehicles(Array.of(vehicle));
   }

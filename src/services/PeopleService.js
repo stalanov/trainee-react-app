@@ -13,7 +13,7 @@ class PeopleService {
   }
 
   async fetchPeoplePage(page) {
-    const response = await fetch(`https://swapi.co/api/people/?page=${page}`);
+    const response = await fetch(`https://swapi.dev/api/people/?page=${page}`);
     const data = await response.json();
     this.count = data.count;
     const people = data.results;
@@ -44,7 +44,7 @@ class PeopleService {
   }
 
   async fetchPersonById(id) {
-    const response = await fetch(`https://swapi.co/api/people/${id}/`);
+    const response = await fetch(`https://swapi.dev/api/people/${id}/`);
     const person = await response.json();
     await this.cachePeople(Array.of(person));
   }

@@ -13,7 +13,7 @@ class FilmsService {
   }
 
   async fetchFilmsPage(page) {
-    const response = await fetch(`https://swapi.co/api/films/?page=${page}`);
+    const response = await fetch(`https://swapi.dev/api/films/?page=${page}`);
     const data = await response.json();
     this.count = data.count;
     const films = data.results;
@@ -40,7 +40,7 @@ class FilmsService {
   }
 
   async fetchFilmById(id) {
-    const response = await fetch(`https://swapi.co/api/films/${id}/`);
+    const response = await fetch(`https://swapi.dev/api/films/${id}/`);
     const film = await response.json();
     await this.cacheFilms(Array.of(film));
   }

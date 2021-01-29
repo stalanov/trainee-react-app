@@ -13,7 +13,7 @@ class StarshipsService {
   }
 
   async fetchStarshipsPage(page) {
-    const response = await fetch(`https://swapi.co/api/starships/?page=${page}`);
+    const response = await fetch(`https://swapi.dev/api/starships/?page=${page}`);
     const data = await response.json();
     this.count = data.count;
     const starships = data.results;
@@ -44,7 +44,7 @@ class StarshipsService {
   }
 
   async fetchStarshipById(id) {
-    const response = await fetch(`https://swapi.co/api/starships/${id}/`);
+    const response = await fetch(`https://swapi.dev/api/starships/${id}/`);
     const specie = await response.json();
     await this.cacheStarships(Array.of(specie));
   }
